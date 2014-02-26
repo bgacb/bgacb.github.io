@@ -15,9 +15,84 @@
     </head>
     <body>
         <h1>
-            <img src="logo.svg" width="200" height="292" onerror="this.src=logo.png"><br>
-            Bowling Green, Ohio, USA
+            <a href="/"><img src="logo.svg" width="200" height="292" onerror="this.src=logo.png"></a>
+            <div class="print">Bowling Green Area Community Band</div>
+            <div>Bowling Green, Ohio, USA</div>
         </h1>
-        <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FBowling-Green-Area-Community-Band%2F152345871517073&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=807652695931061" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe>
+        <div class="center">
+            <div class="schedule">           
+                <h2 class="title"><span class="nowrap">Next Concert</span></h2>
+                <p class="desc"><small><a href="schedule.html">Concert Schedule</a></small></p>
+            </div>
+
+            <hr>
+
+            <h2>BGACB Concert Band</h2>
+            <p>
+                Thom Headley, <i>Conductor</i><br>
+                Bruce Corrigan, <i>Assistant Conductor</i><br>
+                Nick Ezzone, <i>Conductor Laureate</i>
+            </p>
+
+            <div class="concert-band">
+                <h3 class="title">Next Rehearsal</h3>
+                <p class="desc"><small><a href="concert-band.html">Concert Band Rehearsal Schedule</a></small></p>
+            </div>
+
+            <hr>
+
+            <h2>BGACB Jazz Band</h2>
+            <p>
+                William E. Lake, <i>Director</i><br>
+                Gary Keller, <i>Assistant Director</i>
+            </p>
+
+            <div class="jazz-band">
+                <h3 class="title">Next Rehearsal</h3>
+                <p class="desc"><small><a href="concert-band.html">Jazz Band Rehearsal Schedule</a></small></p>
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+        <script>
+        function update(target) {
+            $.get(target + '.html', function(data) {
+                var time, desc, offset = moment().subtract('hours', 2);
+                data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
+
+                $('<div>' + data + '</div>').find('.event').each(function() {
+                    var current = moment($(this).find('time').attr('datetime'));
+
+                    if (offset < current) {
+                        time = current;
+                        desc = $(this).find('.desc');
+                        return false;
+                    }
+                });
+
+                if (time && desc) {                    
+                    $('.' + target + ' .title').append(
+                        ' &ndash; <span class="nowrap">' +
+                        time.format('dddd, MMMM D, YYYY') +
+                        '</span>'
+                    );
+
+                    $('.' + target + ' .desc').prepend(
+                        '<div><b>' + 
+                        time.format('h:mm A') + 
+                        '</b>, ' +
+                        desc.html() +
+                        '</div>'
+                    );
+                }
+            });
+        }
+
+        update('schedule');
+        update('concert-band');
+        update('jazz-band');
+        </script>
     </body>
 </html>
+
