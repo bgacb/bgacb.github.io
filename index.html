@@ -49,7 +49,7 @@
 
             <div class="jazz-band">
                 <h3 class="title">Next Rehearsal</h3>
-                <p class="desc"><small><a href="concert-band.html">Jazz Band Rehearsal Schedule</a></small></p>
+                <p class="desc"><small><a href="jazz-band.html">Jazz Band Rehearsal Schedule</a></small></p>
             </div>
         </div>
 
@@ -62,7 +62,7 @@
                 data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
 
                 $('<div>' + data + '</div>').find('.event').each(function() {
-                    var current = moment($(this).find('time').attr('datetime'));
+                    var current = moment.parseZone($(this).find('time').attr('datetime'));
 
                     if (offset < current) {
                         time = current;

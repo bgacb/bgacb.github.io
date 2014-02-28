@@ -33,6 +33,15 @@ p {
     margin: 0 0 16px 0;
 }
 
+td, th {
+    padding-right: 16px;
+    vertical-align: top;
+}
+
+th {
+    text-align: right;
+}
+
 .center {
     text-align: center;
 }
