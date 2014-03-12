@@ -53,6 +53,7 @@ hr {
     border: none;
     border-top: 3px double #000;
     margin: 32px auto;
+    min-width: 256px;
     width: 50%;
 }
 
@@ -82,8 +83,8 @@ th {
 }
 
 .patron a:link, .patron a:visited {
-    background: #A9A9A9;
-    background: rgba(0,0,0,0.34);
+    background: #595F49;
+    background: rgba(0,0,0,0.3);
     border-radius: 8px;
     color: #fff;
     display: inline-block;
@@ -91,7 +92,7 @@ th {
 }
 
 .patron a:active, .patron a:hover {
-    background: #808080;
+    background: #262C16;
     background: rgba(0,0,0,0.5);
     text-decoration: none;
 }
