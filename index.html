@@ -7,7 +7,7 @@
         <title>Bowling Green Area Community Band</title>
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" rel="stylesheet">
-        <link href="http://bgacb.github.io/style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
         <!--[if lt IE 9]>
             <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
             <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
@@ -24,14 +24,18 @@
             <p>Bowling Green, Ohio, USA</p>
             <p>
                 <a href="https://www.facebook.com/pages/Bowling-Green-Area-Community-Band/152345871517073">
-                    <img src="http://bgacb.github.io/facebook.png" width="114" height="29" alt="Find us on Facebook">
+                    <img src="facebook.png" width="114" height="29" alt="Find us on Facebook">
                 </a>
             </p>
         </header>
         <main class="center">
             <div class="schedule">           
-                <h2 class="title"><span class="nowrap">Next Concert</span></h2>
-                <p class="desc"><small><a href="schedule.html">Concert Schedule</a></small></p>
+                <h2 class="title"><span class="first">Next Concert</span></h2>
+                <p class="desc"><a href="schedule.html">Concert Schedule</a></p>
+            </div>
+
+            <div class="patron">
+                <a href="patron.pdf">Become a Patron</a>
             </div>
 
             <hr>
@@ -44,8 +48,8 @@
             </p>
 
             <div class="concert-band">
-                <h3 class="title">Next Rehearsal</h3>
-                <p class="desc"><small><a href="concert-band.html">Concert Band Rehearsal Schedule</a></small></p>
+                <h3 class="title"><span class="first">Next Rehearsal</span></h3>
+                <p class="desc"><a href="concert-band.html">Concert Band Rehearsal Schedule</a></p>
             </div>
 
             <hr>
@@ -57,8 +61,8 @@
             </p>
 
             <div class="jazz-band">
-                <h3 class="title">Next Rehearsal</h3>
-                <p class="desc"><small><a href="jazz-band.html">Jazz Band Rehearsal Schedule</a></small></p>
+                <h3 class="title"><span class="first">Next Rehearsal</span></h3>
+                <p class="desc"><a href="jazz-band.html">Jazz Band Rehearsal Schedule</a></p>
             </div>
         </main>
         <footer>
@@ -86,14 +90,12 @@
 
                 if (time && desc) {                    
                     $('.' + target + ' .title').append(
-                        ' &ndash; <span class="nowrap">' +
-                        time.format('dddd, MMMM D, YYYY') +
-                        '</span>'
+                        ' ' + time.format('dddd, MMMM D, YYYY').replace(' ', '&nbsp;')
                     );
 
                     $('.' + target + ' .desc').prepend(
                         '<div><b>' + 
-                        time.format('h:mm A') + 
+                        time.format('h:mm A').replace(' ', '&nbsp;') + 
                         '</b>, ' +
                         desc.html() +
                         '</div>'

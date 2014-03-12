@@ -27,7 +27,7 @@ body {
     color: #000;
     font: 16px/1.5 'Open Sans', Helvetica, Arial, sans-serif;
     margin: 32px 0;
-    padding: 0 32px;
+    padding: 0 16px;
 }
 
 footer {
@@ -73,8 +73,27 @@ th {
     text-align: center;
 }
 
-.nowrap {
+.first {
     white-space: nowrap;
+}
+
+.first:after {
+    content: " \2013 ";
+}
+
+.patron a:link, .patron a:visited {
+    background: #A9A9A9;
+    background: rgba(0,0,0,0.34);
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.patron a:active, .patron a:hover {
+    background: #808080;
+    background: rgba(0,0,0,0.5);
+    text-decoration: none;
 }
 
 .print {
@@ -84,6 +103,7 @@ th {
 @media (min-width: 990px) and (min-height: 500px) {
     body {
         margin-left: 25%;
+        padding: 0 32px;
     }
 
     footer {
@@ -99,6 +119,35 @@ th {
         position: fixed;
         top: 0; bottom: 0; left: 0;
         width: 25%;
+    }
+}
+
+@media (max-width: 990px) {
+    tr, th, td {
+        display: block;
+        padding: 0;
+    }
+
+    th {
+        float: left;
+        text-align: left;
+    }
+
+    th + td {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    tr {
+        margin-bottom: 16px;
+    }
+
+    .first {
+        display: block;
+    }
+
+    .first:after {
+        content: '';
     }
 }
 
@@ -119,3 +168,4 @@ th {
         display: block;
     }
 }
+
