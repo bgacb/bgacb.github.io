@@ -23,7 +23,7 @@ aside {
 }
 
 body {
-    background: #a5ab95 url(http://bgacb.github.io/green_cup.png) repeat fixed;
+    background: #a5ab95 url(green_cup.png) repeat fixed;
     color: #000;
     font: 16px/1.5 'Open Sans', Helvetica, Arial, sans-serif;
     margin: 32px 0;
@@ -57,17 +57,34 @@ hr {
     width: 50%;
 }
 
-p {
+p, table {
     margin: 0 0 16px 0;
 }
 
 td, th {
     padding-right: 16px;
+    text-align: left;
     vertical-align: top;
 }
 
-th {
-    text-align: right;
+.button {
+    background: #595F49;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 8px;
+    color: #fff !important;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.button:active, .button:hover {
+    background: #262C16;
+    background: rgba(0,0,0,0.5);
+    text-decoration: none;
+}
+
+.button + .button {
+    margin-left: 16px;
 }
 
 .center {
@@ -82,23 +99,20 @@ th {
     content: " \2013 ";
 }
 
-.patron a:link, .patron a:visited {
-    background: #595F49;
-    background: rgba(0,0,0,0.3);
-    border-radius: 8px;
-    color: #fff;
-    display: inline-block;
-    padding: 8px 16px;
+.people {
+    width: 100%;
 }
 
-.patron a:active, .patron a:hover {
-    background: #262C16;
-    background: rgba(0,0,0,0.5);
-    text-decoration: none;
+.people th {
+    width: 30%;
 }
 
 .print {
     display: none;
+}
+
+.schedule th {
+    text-align: right;
 }
 
 @media (min-width: 990px) and (min-height: 500px) {
@@ -129,16 +143,6 @@ th {
         padding: 0;
     }
 
-    th {
-        float: left;
-        text-align: left;
-    }
-
-    th + td {
-        font-weight: bold;
-        text-align: right;
-    }
-
     tr {
         margin-bottom: 16px;
     }
@@ -149,6 +153,16 @@ th {
 
     .first:after {
         content: '';
+    }
+
+    .schedule th {
+        float: left;
+        text-align: left;
+    }
+
+    .schedule th + td {
+        font-weight: bold;
+        text-align: right;
     }
 }
 
