@@ -57,6 +57,15 @@ hr {
     width: 50%;
 }
 
+input {
+    background: #8C927C;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid #727862;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
 p, table {
     margin: 0 0 16px 0;
 }
@@ -68,7 +77,7 @@ td, th {
 }
 
 .button {
-    background: #595F49;
+    background: #727862;
     background: rgba(0,0,0,0.3);
     border: none;
     border-radius: 8px;
