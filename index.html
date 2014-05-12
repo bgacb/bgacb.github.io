@@ -29,14 +29,14 @@
             </p>
         </header>
         <main class="center">
-            <div class="schedule">           
+            <div class="schedule">
                 <h2 class="title"><span class="first">Next Concert</span></h2>
                 <p class="desc"><a href="schedule.html">Concert Schedule</a></p>
             </div>
 
             <div>
                 <a href="patron.pdf" class="button">Become a Patron</a>
-                <a href="mailing-list.html" class="button">Join our Mailing List</a>
+                <!-- <a href="mailing-list.html" class="button">Join our Mailing List</a> -->
             </div>
 
             <hr>
@@ -93,14 +93,14 @@
                     }
                 });
 
-                if (time && desc) {                    
+                if (time && desc) {
                     $('.' + target + ' .title').append(
                         ' ' + time.format('dddd, MMMM D, YYYY').replace(' ', '&nbsp;')
                     );
 
                     $('.' + target + ' .desc').prepend(
-                        '<div><b>' + 
-                        time.format('h:mm A').replace(' ', '&nbsp;') + 
+                        '<div><b>' +
+                        time.format('h:mm A').replace(' ', '&nbsp;') +
                         '</b>, ' +
                         desc.html() +
                         '</div>'
