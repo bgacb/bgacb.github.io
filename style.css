@@ -57,6 +57,10 @@ hr {
     width: 50%;
 }
 
+img {
+    vertical-align: top;
+}
+
 input {
     background: #8C927C;
     background: rgba(0,0,0,0.1);
@@ -109,7 +113,6 @@ td, th {
 
 .event {
     position: relative;
-    min-height: 128px;
 }
 
 .first {
@@ -145,6 +148,14 @@ td, th {
 
 .schedule th {
     text-align: right;
+}
+
+.with-flyer {
+    min-height: 128px;
+}
+
+.with-flyer .desc {
+    margin: 0;
 }
 
 @media (min-width: 990px) and (min-height: 500px) {
