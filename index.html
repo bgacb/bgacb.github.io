@@ -44,6 +44,7 @@
             <h2>BGACB Concert Band</h2>
             <p>
                 Thom Headley, <i>Conductor</i><br>
+                Catherine Lewis, <i>Assistant Conductor</i><br>
                 Nick Ezzone, <i>Conductor Laureate</i>
             </p>
 
@@ -74,12 +75,12 @@
             <a href="mailto:bgacb@kloor.org">bgacb@kloor.org</a>
         </footer>
 
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
         <script>
         function update(target) {
             $.get(target + '.html', function(data) {
-                var time, desc, offset = moment().subtract('hours', 2);
+                var time, desc, flyer, offset = moment().subtract(2, 'hours');
                 data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
 
                 $('<div>' + data + '</div>').find('.event').each(function() {
@@ -88,6 +89,7 @@
                     if (offset < current) {
                         time = current;
                         desc = $(this).find('.desc');
+                        flyer = $(this).find('.flyer');
                         return false;
                     }
                 });
@@ -104,6 +106,10 @@
                         desc.html() +
                         '</div>'
                     );
+
+                    if (flyer) {
+                        $('.' + target).prepend(flyer);
+                    }
                 }
             });
         }
@@ -114,4 +120,3 @@
         </script>
     </body>
 </html>
-

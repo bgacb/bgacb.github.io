@@ -106,13 +106,17 @@ td, th {
 
 .center .flyer {
     float: none;
-    margin: 0 auto;
     max-width: 320px;
+    margin: 0 auto;
     padding: 32px;
+    position: absolute;
+    top: 0; right: 0;
 }
 
-.event {
-    position: relative;
+.event:after {
+    clear: both;
+    content: " ";
+    display: table;
 }
 
 .first {
@@ -125,9 +129,9 @@ td, th {
 
 .flyer {
     display: block;
-    position: absolute;
-    top: 0; right: 0;
+    float: right;
     max-width: 96px;
+    margin-bottom: 1em;
 }
 
 .flyer img {
@@ -156,14 +160,6 @@ td, th {
 
 .schedule th {
     text-align: right;
-}
-
-.with-flyer {
-    min-height: 128px;
-}
-
-.with-flyer .desc {
-    margin: 0;
 }
 
 @media (min-width: 990px) and (min-height: 500px) {
@@ -243,4 +239,3 @@ td, th {
         display: block;
     }
 }
-
