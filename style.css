@@ -23,7 +23,7 @@ aside {
 }
 
 body {
-    background: #a5ab95 url(green_cup.png) repeat fixed;
+    background: url(noise.png) repeat fixed, url(background.png) repeat fixed;
     color: #000;
     font: 16px/1.5 'Open Sans', Helvetica, Arial, sans-serif;
     margin: 32px 0;
