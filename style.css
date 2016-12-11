@@ -162,6 +162,13 @@ td, th {
     text-align: right;
 }
 
+.schedule .desc em {
+    background: #f00;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0 5px;
+}
+
 @media (min-width: 990px) and (min-height: 500px) {
     body {
         margin-left: 25%;
