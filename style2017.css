@@ -1,9 +1,42 @@
+aside {
+    font-size: .8125em;
+    font-style: italic;
+}
+
+aside, hr, .event {
+    clear: both;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, table {
     margin: .5rem 0;
+}
+
+td, th {
+    padding-right: .5rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+td:last-child, th:last-child {
+    padding-right: 0;
+}
+
+.index {
+    font-size: 2rem;
+    line-height: 1rem;
+    padding-top:
+}
+
+.people {
+    width: 100%;
+}
+
+.people th {
+    width: 50%;
 }
 
 #mobile-menu , label[for=mobile-menu] {
@@ -99,7 +132,6 @@ h1, h2, h3, h4, h5, h6, p {
     hr {
         border: none;
         border-top: 1px solid #cec;
-        clear: both;
         margin: 1rem 0;
     }
 
@@ -125,6 +157,13 @@ h1, h2, h3, h4, h5, h6, p {
         font-size: 1.5rem;
     }
 
+    #schedule .desc em {
+        background: #f00;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0 5px;
+    }
+
     .desc:first-line {
         font-weight: bold;
     }
@@ -141,6 +180,10 @@ h1, h2, h3, h4, h5, h6, p {
         float: right;
         margin: .5rem 0 .5rem .5rem;
         max-width: 10rem;
+    }
+
+    .page .next {
+        float: right;
     }
 }
 
@@ -236,7 +279,7 @@ h1, h2, h3, h4, h5, h6, p {
         color: #00e;
     }
 
-    footer, header > h1 > a > img, nav, .flyer {
+    footer, header > h1 > a > img, nav, .flyer, .page {
         display: none;
     }
 
