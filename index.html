@@ -106,52 +106,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.11/moment-timezone-with-data.min.js"></script>
+        <script src="http://bgacb.github.io/update.js"></script>
         <script>
-        function update(target) {
-            var uri = 'http://bgacb.github.io/' + target + '.html';
-
-            jQuery.get(uri, function(data) {
-                var time, desc, flyer, offset;
-
-                offset = moment().tz('America/New_York').subtract(2, 'hours');
-                data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
-
-                jQuery('<div>' + data + '</div>').find('.event').each(function() {
-                    var current = moment.tz(
-                        jQuery(this).find('time').attr('datetime'),
-                        'America/New_York'
-                    );
-
-                    if (offset < current) {
-                        time = current;
-                        desc = jQuery(this).find('.desc');
-                        flyer = jQuery(this).find('.flyer');
-                        return false;
-                    }
-                });
-
-                if (time && desc) {
-                    jQuery('#' + target + ' .title').append(
-                        ' ' + time.format('dddd, MMMM D, YYYY').replace(/\s/g, '&nbsp;')
-                    );
-
-                    jQuery('#' + target + ' .desc').prepend(
-                        time.format('h:mm A').replace(' ', '&nbsp;') + ', ' +
-                        desc.html() + '<br>'
-                    );
-
-                    if (flyer) {
-                        jQuery('#' + target).prepend(flyer);
-                    }
-                } else {
-                    jQuery('#' + target).hide();
-                }
-            });
-        }
-
-        update('schedule');
-        update('concert-band');
-        update('jazz-band');
+        update('schedule', '.event');
+        update('concert-band', '.event');
+        update('jazz-band', '.event');
         </script>
     </body>
 </html>
