@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bowling Green Area Community Bands</title>
+        <title>BiG Band BG &ndash; Bowling Green Area Community Bands</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700,700i" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/4.1.0/sanitize.min.css" rel="stylesheet">
-        <link href="http://bgacb.github.io/style2017.css" rel="stylesheet">
+        <link href="style2017.css" rel="stylesheet">
     </head>
     <body>
         <section>
@@ -45,55 +45,71 @@
         </section>
         <section>
             <main>
+                <h2>BiG Band BG</h2>
                 <div id="schedule">
-                    <h2 class="title">
+                    <h3 class="title">
                         <span class="first">Next Concert</span>
-                    </h2>
+                    </h3>
                     <p class="desc">
                         <a href="schedule.html">Concert Schedule</a>
                     </p>
                     <hr>
                 </div>
 
-                <h2>BGACB Concert Band</h2>
-                <p>
-                    Thom Headley, <i>Conductor</i><br>
-                    Catherine Lewis, <i>Assistant Conductor</i><br>
-                    Nick Ezzone, <i>Conductor Laureate</i>
-                </p>
-
-                <div id="concert-band">
-                    <h3 class="title">
-                        <span class="first">Next Rehearsal</span>
-                    </h3>
-                    <p class="desc">
-                        <a href="concert-band.html">Complete Schedule &amp; Details</a>
-                    </p>
-                </div>
+                <h3>Who we are</h3>
+                <ul>
+                    <li>BiG Band BG is the community jazz band sponsored by the nonprofit Bowling Green Area Community Bands (BGACB), which also operates a concert band. The BGACB strives to contribute positively to the musical and cultural environment of northwest Ohio, while providing opportunities for individual expression and growth. As an amateur organization, we play primarily for the love of it.</li>
+                    <li>Our 20 members, aged 20s through 70s, hail mainly from Wood Co. Some of us are retired. Others have day jobs in, for example, computers, government, or business. Half of us earned at least a bachelor’s degree in music.</li>
+                </ul>
+                <h3>What we play</h3>
+                <ul>
+                    <li>Our repertoire consists mainly of swing, with a dollop of latin and a smattering of jazz-rock and funk. The bulk comes from mainstream jazz (50s and 60s), with the swing era (30s and 40s) not far behind. Among our favorite big bands are those of Count Basie, Duke Ellington, Stan Kenton, Glenn Miller, and Buddy Rich.</li>
+                    <li>The majority of our performances occur with the BGACB Concert Band. BiG Band BG also plays concerts, festivals, and dances on its own. We would enjoy providing music for your special event. (However, we do not send out small combos.) Contact information is listed on the bottom of the page.</li>
+                </ul>
 
                 <hr>
-
-                <h2>BiG Band BG</h2>
-                <p>
-                    The Bowling Green Area Community&nbsp;Jazz&nbsp;Band<br>
-                    William E. Lake, <i>Director</i>
-                </p>
-
-                <div id="jazz-band">
-                    <h3 class="title">
-                        <span class="first">Next Rehearsal</span>
-                    </h3>
-                    <p class="desc">
-                        <a href="concert-band.html">Complete Schedule &amp; Details</a>
-                    </p>
+                <h3>Personnel</h3>
+                <div class="columns">
+                    <div>
+                        <h4>Sax</h4>
+                        Ardy Gonyer<br>
+                        Dan Schellhas<br>
+                        Shelby Sweinhagen<br>
+                        Dan Van Vorhis<br>
+                        Larry Wagner
+                    </div>
+                    <div>
+                        <h4>Trumpet</h4>
+                        Brian Bushong<br>
+                        Sara Bushong<br>
+                        Megan Smith<br>
+                        Lily Szymanski<br>
+                        Adam Young
+                    </div>
+                    <div>
+                        <h4>Trombone</h4>
+                        Norm Carpenter<br>
+                        Jim George<br>
+                        John Kloor<br>
+                        Larry Twitchell
+                    </div>
+                    <div>
+                        <h4>Rhythm</h4>
+                        Steve Arnold<br>
+                        Keith Bernhard<br>
+                        Rob Cintron<br>
+                        Mark Dally<br>
+                        William E. Lake<br>
+                        Eddie Melikian
+                    </div>
                 </div>
-
             </main>
             <footer>
                 <p>
                     <strong>
                         For Further Information:
-                        <a href="mailto:thomasRheadley@gmail.com">thomasRheadley@gmail.com</a>
+                        William E. Lake, 419-601-3941,
+                        <a href="mailto:wlake@bgsu.edu">wlake@bgsu.edu</a>
                     </strong>
                 </p>
                 <p>
@@ -102,7 +118,6 @@
                 </p>
             </footer>
         </section>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.11/moment-timezone-with-data.min.js"></script>
@@ -116,7 +131,7 @@
                 offset = moment().tz('America/New_York').subtract(2, 'hours');
                 data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
 
-                jQuery('<div>' + data + '</div>').find('.event').each(function() {
+                jQuery('<div>' + data + '</div>').find('.event-jazz').each(function() {
                     var current = moment.tz(
                         jQuery(this).find('time').attr('datetime'),
                         'America/New_York'
@@ -150,8 +165,6 @@
         }
 
         update('schedule');
-        update('concert-band');
-        update('jazz-band');
         </script>
     </body>
 </html>
