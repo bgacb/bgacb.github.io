@@ -1,0 +1,247 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: .5rem 0;
+}
+
+#mobile-menu , label[for=mobile-menu] {
+    display: none;
+}
+
+@media screen {
+    a {
+        color: #696;
+        text-decoration: none;
+    }
+
+    a:hover, a:focus {
+        color: #363;
+        text-decoration: underline;
+    }
+
+    body {
+        background: #B7D0A8 url(background2017.png);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0 auto;
+        min-height: 100vh;
+        max-width: 60rem;
+        padding: 0 1rem;
+    }
+
+    body > section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        margin: 0 0 0 1rem;
+    }
+
+    body > section:first-child {
+        -webkit-box-flex: 0;
+            -ms-flex: none;
+                flex: none;
+        margin: 0;
+        width: 12rem;
+    }
+
+    body > section > * {
+        background: rgba(242, 255, 242, 1);
+        box-shadow:
+            0  4px  5px  0   rgba(0, 0, 0, .14),
+            0  1px 10px  0   rgba(0, 0, 0, .12),
+            0  2px  4px -1px rgba(0, 0, 0, .20);
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        margin: 1em 0 0 0;
+        padding: 0 1rem;
+    }
+
+    body > section > *:first-child {
+        margin: 0;
+        -webkit-box-flex: 2;
+            -ms-flex-positive: 2;
+                flex-grow: 2;
+    }
+
+    body > section:first-child > * {
+        -webkit-box-flex: 0;
+            -ms-flex: none;
+                flex: none;
+    }
+
+    header, footer {
+        -webkit-box-flex: 0 !important;
+            -ms-flex: none !important;
+                flex: none !important;
+        text-align: center;
+    }
+
+    header > h1 > a > span {
+        display: none;
+    }
+
+    header > p, footer > p {
+        color: #666;
+        font-size: .8125rem;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #cec;
+        clear: both;
+        margin: 1rem 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav > a {
+        border-top: 1px solid #cec;
+        display: block;
+        padding: .5rem 0;
+    }
+
+    nav > a:first-child {
+        border-top: none;
+    }
+
+    nav > a > strong {
+        font-size: 1.5rem;
+    }
+
+    .desc:first-line {
+        font-weight: bold;
+    }
+
+    .first {
+        white-space: nowrap;
+    }
+
+    .first:after {
+        content: " \2013 ";
+    }
+
+    .flyer {
+        float: right;
+        margin: .5rem 0 .5rem .5rem;
+        max-width: 10rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        display: block;
+        padding: 0;
+    }
+
+    body > section {
+        margin: 0;
+    }
+
+    body > section:first-child {
+        -webkit-box-flex: 0;
+            -ms-flex: none;
+                flex: none;
+        margin: 0 0 1rem 0;
+        width: auto;
+    }
+
+    body > section > * {
+        background: rgba(242, 255, 242, .95);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1;
+    }
+
+    header, nav {
+        text-align: left;
+    }
+
+    header > h1 > a {
+        color: #000;
+    }
+
+    header > h1 > a > img {
+        display: none;
+    }
+
+    header > h1 > a > span {
+        display: inline;
+    }
+
+    nav {
+        max-height: 0;
+        margin: 0 !important;
+        overflow: hidden;
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    nav > a > img {
+        max-height: 2rem;
+    }
+
+    #mobile-menu:checked ~ nav {
+        max-height: 12rem;
+    }
+
+    label[for=mobile-menu] {
+        background: -webkit-linear-gradient(
+          top,
+          #696   0%, #696  20%,
+          #fff  20%, #fff  40%,
+          #696  40%, #696  60%,
+          #fff  60%, #fff  80%,
+          #696  80%, #696 100%
+        );
+        background: linear-gradient(
+          to bottom,
+          #696   0%, #696  20%,
+          #fff  20%, #fff  40%,
+          #696  40%, #696  60%,
+          #fff  60%, #fff  80%,
+          #696  80%, #696 100%
+        );
+        display: block;
+        float: right;
+        height: 10px;
+        margin: .25rem 0;
+        width: 16px;
+    }
+
+    .flyer {
+        display: none;
+    }
+}
+
+@media print {
+    a {
+        color: #00e;
+    }
+
+    footer, header > h1 > a > img, nav, .flyer {
+        display: none;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #000;
+    }
+}
