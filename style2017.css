@@ -25,6 +25,10 @@ td:last-child, th:last-child {
     padding-right: 0;
 }
 
+.event th {
+    text-align: right;
+}
+
 .index {
     font-size: 2rem;
     line-height: 1rem;
@@ -168,6 +172,10 @@ td:last-child, th:last-child {
         font-weight: bold;
     }
 
+    .event .desc:first-line {
+        font-weight: normal;
+    }
+
     .first {
         white-space: nowrap;
     }
@@ -239,6 +247,20 @@ td:last-child, th:last-child {
 
     nav > a > img {
         max-height: 2rem;
+    }
+
+    td, th, tr {
+        display: block;
+        text-align: left !important;
+        width: auto !important;
+    }
+
+    th {
+        margin-top: .5rem;
+    }
+
+    tr:first-child th {
+        margin-top: 0;
     }
 
     #mobile-menu:checked ~ nav {
