@@ -11,7 +11,7 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-h1, h2, h3, p, table, .columns {
+h1, h2, h3, p, ol, table, ul, .columns {
     margin: .5rem 0;
 }
 
