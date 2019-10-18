@@ -45,12 +45,6 @@ td:last-child, th:last-child {
     text-align: right;
 }
 
-.index {
-    font-size: 2rem;
-    line-height: 1rem;
-    padding-top:
-}
-
 .people {
     width: 100%;
 }
@@ -113,9 +107,9 @@ td:last-child, th:last-child {
             0  4px  5px  0   rgba(0, 0, 0, .14),
             0  1px 10px  0   rgba(0, 0, 0, .12),
             0  2px  4px -1px rgba(0, 0, 0, .20);
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
+        -webkit-box-flex: 0;
+            -ms-flex: none;
+                flex: none;
         margin: 1em 0 0 0;
         padding: 0 1rem;
     }
