@@ -4,7 +4,7 @@ function update(target, selector) {
     fetch(uri).then(response => response.text()).then(text => {
         let element, time, desc, flyer;
 
-        const offset = new Date('2024-12-12T17:00:00');
+        const offset = new Date();
         offset.setHours(offset.getHours() - 2);
 
         const parser = new DOMParser();
