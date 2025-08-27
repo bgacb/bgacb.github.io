@@ -1,41 +1,62 @@
 function update(target, selector) {
-    var uri = 'http://bgacb.github.io/' + target + '.html';
+    const uri = 'http://bgacb.github.io/' + target + '.html';
 
-    jQuery.get(uri, function(data) {
-        var time, desc, flyer, offset;
+    fetch(uri).then(response => response.text()).then(text => {
+        let element, time, desc, flyer;
 
-        offset = moment().tz('America/New_York').subtract(2, 'hours');
-        data = data.replace(/^.*<body[^>]*>|<\/body>.*$/g, '');
+        const offset = new Date('2024-12-12T17:00:00');
+        offset.setHours(offset.getHours() - 2);
 
-        jQuery('<div>' + data + '</div>').find(selector).each(function() {
-            var current = moment.tz(
-                jQuery(this).find('time').attr('datetime'),
-                'America/New_York'
+        const parser = new DOMParser();
+        const html = parser.parseFromString(text, 'text/html');
+
+        for (element of html.querySelectorAll(selector)) {
+            time = element.querySelector('time').getAttribute('datetime');
+            time = new Date(
+                time + (time.match(/(Z|[+-]\d\d:?\d\d)$/) ? '' : 'Z')
             );
 
-            if (offset < current) {
-                time = current;
-                desc = jQuery(this).find('.desc');
-                flyer = jQuery(this).find('.flyer');
-                return false;
+            const est = new Date(time.toLocaleString('en-US', {
+                timeZone: 'America/New_York'
+            }));
+
+            const utc = new Date(time.toLocaleString('en-US', {
+                timeZone: 'UTC'
+            }));
+
+            time = new Date(time.getTime() + utc.getTime() - est.getTime());
+
+            if (offset < time) {
+                desc = element.querySelector('.desc');
+                flyer = element.querySelector('.flyer');
+                break;
             }
-        });
+        }
+
+        element = document.getElementById(target);
 
         if (time && desc) {
-            jQuery('#' + target + ' .title').append(
-                ' ' + time.format('dddd, MMMM D, YYYY').replace(/\s/g, '&nbsp;')
+            element.querySelector('.title').append(
+                ' ' + time.toLocaleString('en-US', {
+                    dateStyle: 'full',
+                    timeZone: 'America/New_York'
+                }).replace(/\s/g, '\xa0')
             );
 
-            jQuery('#' + target + ' .desc').prepend(
-                time.format('h:mm A').replace(' ', '&nbsp;') + ', ' +
-                desc.html() + '<br>'
+            element.querySelector('.desc').prepend(
+                time.toLocaleString('en-US', {
+                    timeStyle: 'short',
+                    timeZone: 'America/New_York'
+                }).replace(/\s/g, '\xa0') + ', ',
+                ...desc.childNodes,
+                document.createElement('br')
             );
 
             if (flyer) {
-                jQuery('#' + target).prepend(flyer);
+                element.prepend(flyer);
             }
         } else {
-            jQuery('#' + target).hide();
+            element.style.display = 'none';
         }
     });
 }
